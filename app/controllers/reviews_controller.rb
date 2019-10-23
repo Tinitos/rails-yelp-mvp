@@ -6,8 +6,12 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant)
     else
-      render "restaurants/show"
+      render "restaurants/new"
     end
+  end
+
+  def new
+    @review = Review.new(review_params)
   end
 
   private
